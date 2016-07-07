@@ -6,7 +6,7 @@ import Viewport from '../Viewport';
 import TripGallery from '../TripGallery';
 import Trip from '../Trip';
 
-const routerHistory = process.env.NODE_ENV === 'prod' ? browserHistory : hashHistory;
+const routerHistory = process.env.NODE_ENV === 'production' ? browserHistory : hashHistory;
 
 class App extends React.Component {
   constructor(props, context) {
