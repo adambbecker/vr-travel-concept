@@ -74,8 +74,8 @@ const TripPics = ({ title, items, simulateVR }) =>
             fullscreenEl: false
           } } />
     }
-    <h5 className="trip-pics-detail is-left">{ title }</h5>
-    <h5 className="trip-pics-detail is-right">Gallery</h5>
+    <h5 className="trip-pics-detail is-left"><span className="trip-pics-detail-text">{ title }</span></h5>
+    <h5 className="trip-pics-detail is-right"><span className="trip-pics-detail-text">Gallery</span></h5>
   </div>
 
 export default TripPics;

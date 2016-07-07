@@ -90,7 +90,6 @@
 }
 
 .trip-pics-detail {
-  display: none;
   position: absolute;
     bottom: 0;
   width: 100vh;
@@ -101,6 +100,11 @@
   text-align: center;
   text-transform: uppercase;
   color: $text-color;
+
+  .viewport.is-vr & {
+    width: 140vh;
+    font-size: 2rem;
+  }
 
   &.is-left {
       left: 0;
@@ -156,5 +160,14 @@
   .article-trans-leave.article-trans-leave-active & {
     opacity: 0;
     transition: opacity 325ms $easing-leave;
+  }
+}
+
+.trip-pics-detail-text {
+  display: block;
+
+  .viewport.is-vr & {
+    transform: rotateX(-18deg);
+    transform-origin: bottom;
   }
 }
