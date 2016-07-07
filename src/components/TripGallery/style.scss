@@ -1,0 +1,148 @@
+@import '../../vars.scss';
+
+.trip-gallery {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  perspective: $perspective;
+
+  .viewport.is-vr & {
+    left: -41.75vw;
+    right: -41.75vw;
+    top: -15vh;
+    bottom: -15vh;
+  }
+}
+
+.trip-gallery-bg {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  background-color: white;
+  transform: translateZ(-14rem);
+
+  .viewport.is-vr & {
+    transform: translateZ(-64rem);
+  }
+}
+
+.trip-gallery-panel {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  display: flex;
+  perspective: $perspective;
+}
+
+.trip-gallery-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40vw;
+  padding: 4rem 5rem;
+}
+
+.trip-gallery-intro-title {
+  position: relative;
+  padding-bottom: calc( 0.4em + 4px );
+  margin-bottom: 0.4em;
+  font-size: 3.5rem;
+  line-height: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+      left: 0;
+      bottom: 0;
+    width: 4.25rem;
+    height: 3px;
+    background-color: $text-color;
+    // transform: translateX(-50%);
+  }
+}
+
+.trip-gallery-intro-desc {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.trip-gallery-previews {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  overflow-y: auto;
+  box-shadow: 0 1rem 4em rgba($text-color, 0.2);
+}
+
+.trip-gallery-preview {
+  position: relative;
+  flex: 1 1 50%;
+  height: 50vh;
+
+  &:hover {
+    .trip-gallery-preview-cover {
+      transform: scale(1);
+    }
+  }
+
+  &:first-child {
+    flex-basis: 100%;
+    height: 50vh;
+  }
+}
+
+.trip-gallery-preview-img,
+.trip-gallery-preview-cover,
+.trip-gallery-preview-text {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  transition: transform 325ms $easing-geo;
+}
+
+.trip-gallery-preview-img {
+  background-size: cover;
+  // transform: translateZ(-3rem);
+  // -webkit-clip-path: inset(10px 10px 10px 10px);
+  // clip-path: inset(10px 10px 10px 10px);
+  // clip-path: inset(100px 50px);
+
+}
+
+.trip-gallery-preview-cover {
+  background-color: rgba(0, 0, 0, 0.09);
+  transform: scale(0.92);
+}
+
+.trip-gallery-preview-text {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  // transform: translateZ(-3rem);
+}
+
+.trip-gallery-preview-cover-title,
+.trip-gallery-preview-cover-date {
+  color: white;
+  line-height: 1.3;
+}
+
+.trip-gallery-preview-cover-title {
+  font-size: 2.25rem;
+}
+
+.trip-gallery-preview-cover-date {
+  font-size: 1.25rem;
+  font-style: italic;
+}

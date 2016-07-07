@@ -1,0 +1,95 @@
+@import '../../vars.scss';
+
+.trip {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  perspective: $perspective;
+
+  &.page-trans-leave {
+    opacity: 1;
+  }
+
+  &.page-trans-leave.page-trans-leave-active {
+    opacity: 0;
+    transition: opacity 325ms $easing-leave;
+  }
+
+  .viewport.is-vr & {
+    left: 48.35vw;
+    right: 48.35vw;
+    top: 10vh;
+    bottom: 10vh;
+  }
+}
+
+.trip-bg {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  background-color: #030303;
+  transition: transform 1s $easing-geo, opacity 625ms $easing-geo;
+  opacity: 0.8;
+
+  &.is-opaque {
+    opacity: 0;
+  }
+}
+
+.trip-bg-overlay {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1s $easing-geo, opacity 625ms $easing-geo;
+
+  &.is-map {
+    transform: scaleX(0.36);
+  }
+
+  &.is-full {
+    transform: scaleX(1);
+  }
+
+  &.is-opaque {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+.trip-bg-img {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  background-size: cover;
+
+  .page-trans-enter & {
+    opacity: 0;
+    transform: translateZ(-16rem);
+  }
+
+  .page-trans-enter.page-trans-enter-active & {
+    opacity: 1;
+    transform: translateZ(0);
+    transition: transform 1s $easing-geo, opacity 1s $easing-geo;
+  }
+
+  .page-trans-leave & {
+    opacity: 1;
+  }
+
+  .page-trans-leave.page-trans-leave-active & {
+    opacity: 0;
+    transition: opacity 325ms $easing-leave;
+  }
+}

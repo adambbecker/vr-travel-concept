@@ -1,0 +1,53 @@
+@import '../../vars.scss';
+
+.viewport-con {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  perspective: $perspective;
+}
+
+.viewport {
+  position: absolute;
+    left: 0;
+    top: 0;
+  width: 100vw;
+  height: 100vh;
+  perspective: $perspective;
+
+  &.is-vr {
+      left: -83.5vw;
+      top: -30vh;
+    width: 267vw;
+    height: 160vh;
+  }
+}
+
+.viewport-bg {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  background-color: white;
+  transform: translateZ(-16rem);
+  transform-origin: left;
+  transition: transform 1s $easing-geo;
+
+  &.is-displaced {
+    transform: rotateY(45deg) translateZ(-16rem);
+  }
+
+  &.is-flat {
+    transform: translateZ(0);
+  }
+
+  .viewport.is-vr & {
+      left: 20vw;
+      right: 20vw;
+      top: 5vh;
+      bottom: 5vh;
+  }
+}

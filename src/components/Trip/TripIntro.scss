@@ -1,0 +1,141 @@
+@import '../../vars.scss';
+
+.trip-intro {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  perspective: $perspective;
+}
+
+.trip-intro-title {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+  width: 100%;
+  padding: 0 7.5rem;
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  // text-shadow: 0 0.05em 0.3em rgba($text-color, 0.3);
+  transform: translate(-50%, -50%);
+
+  .page-trans-leave &,
+  .article-trans-leave & {
+    opacity: 1;
+  }
+
+  .page-trans-leave.page-trans-leave-active &,
+  .article-trans-leave.article-trans-leave-active & {
+    opacity: 0;
+    transition: opacity 325ms $easing-leave;
+  }
+
+  .viewport.is-vr & {
+    transform: translate3d(-50%, -50%, 6rem);
+  }
+}
+
+.trip-intro-title-char {
+  .page-trans-enter &,
+  .article-trans-enter & {
+    opacity: 0;
+    transform: translateY(0.1em);
+  }
+
+  .page-trans-enter.page-trans-enter-active &,
+  .article-trans-enter.article-trans-enter-active & {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 1s $easing-enter, opacity 1s $easing-enter;
+  }
+}
+
+.trip-intro-detail {
+  position: absolute;
+    bottom: 0;
+  width: 100vh;
+  padding: 1.6em;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  perspective: $perspective;
+
+  &.is-left {
+      left: 0;
+    transform: rotate(-90deg) translateY(100%);
+    transform-origin: bottom left;
+
+    .page-trans-enter &,
+    .article-trans-enter & {
+      transform: rotate(-90deg) translateY(0);
+    }
+
+    .page-trans-enter.page-trans-enter-active &,
+    .article-trans-enter.article-trans-enter-active & {
+      transform: rotate(-90deg) translateY(100%);
+      transition-delay: 125ms;
+    }
+  }
+
+  &.is-right {
+      right: 0;
+    transform: rotate(90deg) translateY(100%);
+    transform-origin: bottom right;
+
+    .page-trans-enter &,
+    .article-trans-enter & {
+      transform: rotate(90deg) translateY(0);
+    }
+
+    .page-trans-enter.page-trans-enter-active &,
+    .article-trans-enter.article-trans-enter-active & {
+      transform: rotate(90deg) translateY(100%);
+      transition-delay: 225ms;
+    }
+  }
+
+  .viewport.is-vr & {
+    width: 140vh;
+    font-size: 2rem;
+  }
+
+  .page-trans-enter &,
+  .article-trans-enter & {
+    opacity: 0;
+  }
+
+  .page-trans-enter.page-trans-enter-active &,
+  .article-trans-enter.article-trans-enter-active & {
+    opacity: 1;
+    transition: transform 1s $easing-enter, opacity 1s $easing-enter;
+  }
+
+  .page-trans-leave &,
+  .article-trans-leave & {
+    opacity: 1;
+  }
+
+  .page-trans-leave.page-trans-leave-active &,
+  .article-trans-leave.article-trans-leave-active & {
+    opacity: 0;
+    transition: opacity 325ms $easing-leave;
+  }
+}
+
+.trip-intro-detail-text {
+  display: block;
+
+  .viewport.is-vr & {
+    transform: rotateX(-18deg);
+    transform-origin: bottom;
+  }
+}

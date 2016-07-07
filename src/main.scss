@@ -1,0 +1,44 @@
+@import "./vars.scss";
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-size: 100%;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  @media (min-width: 1860px) {
+    font-size: 140%;
+  }
+
+  @media (min-width: 2474px) {
+    font-size: 160%;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: $base-font;
+  background-color: #F8F8F6;
+  color: $text-color;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $heading-font;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/*---- Utility Classes ---*/
+
+.cover {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

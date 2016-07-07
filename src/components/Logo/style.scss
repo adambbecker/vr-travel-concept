@@ -1,0 +1,204 @@
+@import '../../vars.scss';
+
+.logo-con {
+  position: absolute;
+    left: 2rem;
+    top: 2rem;
+  width: 14.5rem;
+  padding: 0 0 calc( 0.4em + 3px ) 1rem;
+  transition: opacity 1s $easing-geo, transform 1s $easing-geo;
+
+  @media (min-width: 1860px) {
+    font-size: 120%;
+  }
+
+  .viewport.is-vr & {
+    left: calc(63.35vw + 2rem);
+    top: calc(20vh + 2rem);
+    transform: rotateY(18deg) rotateX(-7deg) translateZ(6rem);
+    transform-origin: bottom right;
+
+    @media (min-width: 1860px) {
+      transform: rotateY(18deg) rotateX(-7deg) translate3d(3rem, 3rem, 6rem);
+    }
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    .viewport.is-vr & {
+      transform: rotateY(0deg) rotateX(0deg) translateZ(0);
+    }
+  }
+}
+
+.logo {
+  position: relative;
+  display: block;
+  font-size: 2rem;
+  font-family: $heading-font;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+}
+
+.logo-dark {
+  transition: opacity 1s $easing-geo;
+
+  &:before {
+    content: '';
+    position: absolute;
+      left: 0;
+      bottom: -1rem;
+    width: 1.25em;
+    height: 3px;
+    background-color: $text-color;
+  }
+
+  .logo-con.is-light & {
+    opacity: 0;
+  }
+}
+
+.logo-light {
+  display: block;
+  position: absolute;
+    left: 0;
+    top: 0;
+  padding: 0 0 calc( 0.4em + 3px ) 0;
+  font-size: 2rem;
+  font-family: $heading-font;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  color: white;
+  transition: opacity 1s $easing-geo;
+  opacity: 0;
+  pointer-events: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+      left: 0;
+      bottom: 0;
+    width: 1.25em;
+    height: 3px;
+    background-color: white;
+  }
+
+  .logo-con.is-light & {
+    opacity: 1;
+  }
+}
+
+.vr-toggle,
+.vr-toggle-light {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vr-toggle {
+  position: relative;
+  margin-top: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.vr-toggle-light {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  pointer-events: none;
+}
+
+.vr-toggle-text {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1;
+  transition: opacity 1s $easing-geo;
+
+  .logo-con.is-light & {
+    opacity: 0;
+  }
+
+  .vr-toggle-light & {
+    color: white;
+    opacity: 0;
+
+    .logo-con.is-light & {
+      opacity: 1;
+    }
+  }
+}
+
+.vr-toggle-text-text {
+  font-family: $heading-font;
+  text-transform: uppercase;
+}
+
+.vr-toggle-text-icon {
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.5em;
+}
+
+.vr-toggle-control {
+  position: relative;
+  width: 1.625rem;
+  border: solid 3px $text-color;
+  border-radius: 0.5em;
+  background-color: $text-color;
+  transition: opacity 1s $easing-geo;
+
+  .logo-con.is-light & {
+    opacity: 0;
+  }
+
+  .viewport.is-vr & {
+    background-color: white;
+  }
+
+  .vr-toggle-light & {
+    border-color: white;
+    background-color: transparent;
+    opacity: 0;
+
+    .logo-con.is-light & {
+      opacity: 1;
+    }
+
+    .viewport.is-vr & {
+      background-color: transparent;;
+    }
+  }
+}
+
+.vr-toggle-control-marker {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  width: 0.625rem;
+  background-color: white;
+  border-radius: 50%;
+
+  .viewport.is-vr & {
+      left: auto;
+      right: 0;
+    background-color: $text-color;
+  }
+
+  .vr-toggle-light & {
+    background-color: white;
+
+    .viewport.is-vr & {
+      background-color: white;
+    }
+  }
+}

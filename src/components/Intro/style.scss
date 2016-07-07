@@ -1,0 +1,206 @@
+@import '../../vars.scss';
+
+.intro {
+  position: absolute;
+    right: 0;
+    top: 0;
+  width: 100vw;
+  height: 100vh;
+  perspective: $perspective;
+
+  .viewport.is-vr & {
+    right: 83.35vw;
+    top: 30vh;
+  }
+
+  &.page-trans-enter {
+    opacity: 0;
+    transform: translateX(100%) rotateY(-45deg);
+
+    .viewport.is-vr & {
+      transform: rotateY(-24deg) translateZ(18rem);
+      transform-origin: left;
+    }
+  }
+
+  &.page-trans-enter.page-trans-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s $easing-geo, opacity 1s $easing-geo;
+
+    .viewport.is-vr & {
+      transform: rotateY(0deg) translateZ(0);
+    }
+  }
+
+  &.page-trans-leave {
+    opacity: 1;
+    transform: translateX(0);
+
+    .viewport.is-vr & {
+      transform: rotateY(0) translateZ(0);
+      transform-origin: left;
+    }
+  }
+
+  &.page-trans-leave.page-trans-leave-active {
+    opacity: 0;
+    transform: translateX(100%) rotateY(-45deg);
+    transition: transform 1s $easing-geo, opacity 1s $easing-geo;
+
+    .viewport.is-vr & {
+      transform: rotateY(-24deg) translateZ(18rem);
+    }
+  }
+}
+
+.intro-text {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+  position: absolute;
+    right: 0;
+    top: 0;
+  width: 62rem;
+  height: 100vh;
+  padding: 8rem;
+  perspective: $perspective;
+
+  .viewport.is-vr & {
+    transform: translateZ(4rem);
+  }
+
+  .vr-toggle {
+    align-self: flex-end;
+    width: 8rem;
+  }
+}
+
+.intro-gallery {
+  position: absolute;
+    left: -24vw;
+    top: 0;
+  width: 66vw;
+  opacity: 0;
+  transform: translateY(60vh);
+  perspective: $perspective;
+  animation-name: introGalleryScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes introGalleryScroll {
+  0% {
+    opacity: 0;
+    transform: translateY(60vh);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.intro-gallery-item {
+  margin-bottom: 2rem;
+  text-align: right;
+
+  &:nth-child(3n+1) {
+    transform: translateZ(6rem);
+    box-shadow: 0 3rem 6em rgba($text-color, 0.24);
+  }
+
+  &:nth-child(3n+2) {
+    transform: translateZ(-6rem);
+    box-shadow: 0 0.5rem 1.5em rgba($text-color, 0.16);
+  }
+
+  &:nth-child(3n+3) {
+    transform: translateZ(0);
+    box-shadow: 0 1rem 4em rgba($text-color, 0.2);
+  }
+}
+
+.intro-title {
+  display: flex;
+    align-items: center;
+  margin: 0 0 1.25rem;
+  font-size: 5rem;
+  line-height: 1.3;
+  letter-spacing: 0.0625em;
+
+  .viewport.is-vr & {
+    transform: translateZ(3rem);
+  }
+}
+
+.intro-title-bar {
+  flex: 1 1 auto;
+  margin-left: 1rem;
+  border-bottom: solid 4px $text-color;
+}
+
+.intro-desc {
+  align-self: flex-end;
+  max-width: 30em;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+
+  .viewport.is-vr & {
+    transform: translateZ(-3rem);
+  }
+}
+
+.intro-button {
+  position: relative;
+  align-self: flex-end;
+  display: block;
+  padding: 1em 3.6em;
+  margin-top: 2.2rem;
+  border: solid 2px $text-color;
+  font-family: $heading-font;
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: transform 300ms $easing-geo;
+  perspective: $perspective;
+
+  &:before {
+    content: '';
+    position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    background-color: white;
+    box-shadow: 0 1em 2em rgba($text-color, 0.2);
+    opacity: 0;
+    transform: scale(0.8) translate3d(0, 0, -6rem);
+    transition: opacity 300ms ease, transform 300ms $easing-geo;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+  }
+
+  .viewport.is-vr & {
+    transform: translateZ(3rem);
+  }
+}
+
+.intro-button-text {
+  position: relative;
+}

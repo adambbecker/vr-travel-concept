@@ -1,0 +1,93 @@
+@import '../../vars.scss';
+
+.trip-controls {
+  position: absolute;
+    left: 50%;
+    bottom: 2rem;
+  transform: translateX(-50%);
+  transition: transform 1s $easing-geo;
+
+  .viewport.is-vr & {
+    transform: rotateX(18deg) translateX(-50%);
+  }
+
+  &.is-shifted {
+    transform: translateX(-110%);
+
+    .viewport.is-vr & {
+      transform: rotateX(18deg) translateX(-110%);
+    }
+  }
+
+  &.is-previous {
+    transform: translateX(-25%);
+
+    .viewport.is-vr & {
+      transform: rotateX(18deg) translateX(-25%);
+    }
+  }
+
+  .page-trans-enter & {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+
+    .viewport.is-vr & {
+      transform: translateX(-50%) translateY(100%);
+    }
+  }
+
+  .page-trans-enter.page-trans-enter-active & {
+    opacity: 1;
+    transform: rotateX(0deg) translateX(-50%) translateY(0);
+    transition: transform 1s $easing-enter, opacity 1s $easing-enter;
+
+    .viewport.is-vr & {
+      transform: rotateX(18deg) translateX(-50%) translateY(0);
+    }
+  }
+}
+
+.trip-control {
+  position: relative;
+  display: inline-block;
+  padding: 1em 3.6em;
+  margin-left: 1rem;
+  border: solid 2px white;
+  font-family: $heading-font;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: transform 325ms $easing-geo, opacity 325ms $easing-geo;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateY(50%);
+    pointer-events: none;
+  }
+}
+
+.trip-control-dark {
+  display: block;
+  position: absolute;
+    left: -2px;
+    right: -2px;
+    top: -2px;
+    bottom: -2px;
+  padding: 1em 3.6em;
+  border: solid 2px $text-color;
+  color: $text-color;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: opacity 325ms $easing-geo;
+  opacity: 0;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}

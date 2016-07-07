@@ -1,0 +1,29 @@
+// styles specific to Leaflet by way of react-leaflet
+// http://photoswipe.com/
+
+@import '../../vars.scss';
+
+.pswp-thumbnails {
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.pswp {
+    bottom: 7.75rem;
+  height: auto;
+}
+
+.pswp__counter {
+  font-family: $heading-font;
+  font-weight: 300;
+}

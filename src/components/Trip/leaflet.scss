@@ -1,0 +1,22 @@
+// styles specific to Leaflet by way of react-leaflet
+// http://leafletjs.com/
+
+.leaflet-container {
+  // height: 100%;
+  position: absolute;
+    left: -50vw;
+    right: -50vw;
+    top: -100vh;
+    bottom: -100vh;
+  transform: rotateX(50deg);
+  background: transparent;
+  overflow: visible;
+
+  .viewport.is-vr & {
+    transform: rotateX(0);
+  }
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
