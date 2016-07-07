@@ -33,7 +33,7 @@
     "react-dom": "^15.1.0",
     "react-leaflet": "^0.12.0",
     "react-motion": "^0.4.4",
-    "react-photoswipe": "git@github.com:adambbecker/react-photoswipe.git#add/gallery-item-style",
+    "react-photoswipe": "git://github.com/adambbecker/react-photoswipe.git#add/gallery-item-style",
     "react-router": "^2.4.1",
     "sass-loader": "^3.2.1",
     "screenfull": "^3.0.0",
